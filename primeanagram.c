@@ -1,30 +1,35 @@
 #include <stdio.h>
 
 int primes[26] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
-char charsUpper[26] = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
-char charsLower[26] = {a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z};
+// A is a var 'A' is a char literal
 
-convertToPrimeProduct(char string) {
-    for ( int k = 0; k < sizeof(string); k++) {
-        int listofPrimes[sizeof(String)];
-        listofPrimes[k] = primeDict[char[k]ofString];
-    }
-    int productofPrimes = listofPrimes[0];
-
-    for ( int h = 1; h < sizeof(listofPrimes); h++) {
-        productofPrimes *= listofPrimes[h];
-    }
-    return productofPrimes;
+int convertToPrimeProduct(char *string) {
+	int prime = 1;
+	for (; *string != 0; string++) {
+	if (*string > 96) {
+		*string = *string - 32;
+		}
+		prime = prime * primes[*string - 'A'];
+	}
+	return prime;
 }
 
-int void main() {
+int main() {
+	char myinput[20];
+	char myinput2[20];
+	int product1, product2;
+	scanf("%4s", myinput);
+	scanf("%4s", myinput2);
+	product1 = convertToPrimeProduct(myinput);
+	product2 = convertToPrimeProduct(myinput2);
+	printf("number of %c = %d\n", *myinput, myinput[0]);
+	printf("number of %c = %d\n", *myinput2, myinput2[0]);
+	printf("%d\n", product1);
+	printf("%d\n", product2);
+	if (product1 == product2)
+	printf("Is an Anagram!\n");
+	else
+	printf("Is NOT an Anagram\n");
 
-    for ( int i = 0; sizeof(list of input words); i++) {
-
-        listofstrings[i] == convertToPrimeProduct(String[i]);
-        printf("&String = &productofString\n", &String[i], listofStrings([i]));
-    }
-    if (productofstring[0] == productofstring[1])
-        printf("anagram = true\n");
-    return 0;
+	return 0;
 }
